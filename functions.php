@@ -7,13 +7,34 @@
 */
 function blogtheme_theme_support() {
     add_theme_support('title-tag');
+    add_theme_support('custom-logo');
 }
 
 add_action('after_theme_setup', 'blogtheme_theme_support');
 
+/*
+    Menus
+
+    - Establish nav menu array and titles from backend
+    - Register the navigation menus to wordpress
+*/
+function blogtheme_menus() {
+    $location = [
+        'primary' => 'Desktop Primary Left Sidebar',
+        'footer' => 'Footer Menu Items',
+        
+    ];
+
+    register_nav_menus($location);
+}
+
+add_action('init', 'blogtheme_menus');
+
 
 /*
     Enqueue Styles
+
+    - Theme versions derive from style.css
 */
 function blogtheme_register_styles()
 {
@@ -43,4 +64,4 @@ function blogtheme_register_scripts() {
 
 add_action('wp_enqueue_scripts','blogsite_register_styles');
 
-?> 
+?>
