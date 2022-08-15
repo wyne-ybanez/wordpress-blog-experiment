@@ -1,5 +1,11 @@
 <?php
 /*
+    Add Action
+
+    - add_action( $hook, $custom_function_to_add, $priority, $accepted_args );
+/*
+
+/*
     Theme Support
 
    - Adds a dynamic title tag support, which adds it automatically to the wordpress page
@@ -63,5 +69,40 @@ function blogtheme_register_scripts() {
 }
 
 add_action('wp_enqueue_scripts','blogsite_register_styles');
+
+/*
+    Widgets
+*/
+function blogtheme_widget_areas() {
+
+    // Registers sidebar
+    register_sidebar(
+        array(
+            'before_title' => '<h4>',
+            'after_title' => '</h4>',
+            'before_widget' => '<ul class="social-list list-inline py-3 mx-auto">',
+            'after_widget' => '</ul>',
+            'name' => 'Sidebar Area',
+            'id' => 'sidebar-1',
+            'description' => 'Sidebar Widget Area',
+        )
+    );
+
+    // Registers Footer sidebar
+    register_sidebar(
+        array(
+            'before_title' => '<h4>',
+            'after_title' => '</h4>',
+            'before_widget' => '<ul class="social-list list-inline py-3 mx-auto">',
+            'after_widget' => '</ul>',
+            'name' => 'Footer Area',
+            'id' => 'footer-1',
+            'description' => 'Footer Widget Area',
+        )
+    );
+
+}
+
+add_action('widgets_init', 'blogtheme_widget_areas');
 
 ?>
