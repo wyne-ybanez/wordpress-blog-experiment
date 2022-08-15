@@ -22,7 +22,6 @@
 
     </article>
 
-<!-- Get Footer Template -->
 <?php
     get_footer();
 ?>
