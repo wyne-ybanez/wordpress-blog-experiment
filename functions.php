@@ -8,6 +8,7 @@
 function blogtheme_theme_support() {
     add_theme_support('title-tag');
     add_theme_support('custom-logo');
+    add_theme_support('post-thumbnails');
 }
 
 add_action('after_theme_setup', 'blogtheme_theme_support');
@@ -22,7 +23,6 @@ function blogtheme_menus() {
     $location = [
         'primary' => 'Desktop Primary Left Sidebar',
         'footer' => 'Footer Menu Items',
-        
     ];
 
     register_nav_menus($location);
